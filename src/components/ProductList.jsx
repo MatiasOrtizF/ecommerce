@@ -7,12 +7,15 @@ import iconPlus from '../images/icon-plus';
 import iconMinus from '../images/icon-minus';
 import iconCart from '../images/icon-cart';
 import RNPickerSelect from 'react-native-picker-select';
+import { useCart } from '../hooks/cartContext';
 
 
 export default function ProductList() {
     const [count , setCount] = useState(0);
     
     const [selectedValue, setSelectedValue] = useState('');
+
+    const {addToCart} = useCart();
 
     const pickerItems = [
         { label: 'Opción 1', value: 'opcion1' },
@@ -26,6 +29,10 @@ export default function ProductList() {
 
     const plus = () => {
         console.log("SUMAR");
+    }
+
+    const addCart = (id) => {
+        console.log("Add"+id);
     }
 
     return (
@@ -47,8 +54,8 @@ export default function ProductList() {
                                     <Text style={styles.category}> {product.category} </Text>
                                 </View>
                                 <View style={{flexDirection:"row" , justifyContent:"space-between" , alignItems:"center"}}>
-                                    <Text style={styles.title}> ${product.price} </Text>
-                                    <TouchableOpacity style={styles.button}>
+                                    <Text style={styles.title}> ${(product.price*product.discountPercentage/100).toFixed(2)} </Text>
+                                    <TouchableOpacity style={styles.button} onPress={() => addToCart(product)}>
                                         <Text style={{color:"white" , fontSize:12 , fontWeight:"bold"}}>Add to cart</Text>
                                     </TouchableOpacity> 
                                 </View>
