@@ -8,18 +8,29 @@ export function CartProvider({children}) {
     const addToCart = product =>{
         const productInCartIndex = cart.findIndex(item=>item.id==product.id);
         // si encontre el producto
-        if(productInCartIndex >0) {
-            console.log("ya existe");
+        if(productInCartIndex >= 0) {
+            const newCart = [...cart]
+            newCart[productInCartIndex].quantity += 1
+            return setCart(newCart)
+        } else {
+            // si no encontro el producto en el carrito
+            setCart(prevState => ([
+                ...prevState,
+                {
+                    ...product,
+                    quantity:1
+                }
+            ]))
         }
+    }
 
-        // si no encontro el producto en el carrito
-        setCart(prevState => ([
-            ...prevState,
-            {
-                ...product,
-            }
-        ]))
-        console.log(cart);
+    const minus = product => {
+        const productInCartIndex = cart.findIndex(item=>item.id==product.id);
+        if(cart[productInCartIndex].quantity  > 1) {
+            const newCart = [...cart]
+            newCart[productInCartIndex].quantity -= 1
+            return setCart(newCart)
+        }
     }
 
     const removeFromCart = product => {
@@ -35,7 +46,8 @@ export function CartProvider({children}) {
             cart,
             addToCart,
             clearCart,
-            removeFromCart
+            minus,
+            removeFromCart,
         }} >
             {children}
         </CartContext.Provider>

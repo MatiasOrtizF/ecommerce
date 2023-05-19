@@ -1,39 +1,12 @@
-import { StyleSheet, Text , FlatList, SafeAreaView , View , ImageBackground, Button, TouchableOpacity, Touchable } from 'react-native';
+import { StyleSheet, Text , FlatList , View , ImageBackground , TouchableOpacity } from 'react-native';
 import products from '../data/Products.json';
 import Constants from 'expo-constants';
 import { useState } from 'react';
-import { SvgXml } from 'react-native-svg';
-import iconPlus from '../images/icon-plus';
-import iconMinus from '../images/icon-minus';
-import iconCart from '../images/icon-cart';
-import RNPickerSelect from 'react-native-picker-select';
 import { useCart } from '../hooks/cartContext';
 
 
 export default function ProductList() {
-    const [count , setCount] = useState(0);
-    
-    const [selectedValue, setSelectedValue] = useState('');
-
     const {addToCart} = useCart();
-
-    const pickerItems = [
-        { label: 'Opción 1', value: 'opcion1' },
-        { label: 'Opción 2', value: 'opcion2' },
-        { label: 'Opción 3', value: 'opcion3' }
-    ];
-
-    const minus = () => {
-        console.log("RESTA");
-    }
-
-    const plus = () => {
-        console.log("SUMAR");
-    }
-
-    const addCart = (id) => {
-        console.log("Add"+id);
-    }
 
     return (
         <View style={styles.container}>
@@ -98,31 +71,4 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         padding: 5,
     },
-    // count: {
-    //     flexDirection: "row",
-    //     justifyContent: "space-between",
-    //     alignItems:"center",
-    //     backgroundColor: "#F5F7FA",
-    //     padding: 12,
-    //     borderRadius: 7,
-    //     marginVertical: 15,
-    // },
-    // description: {
-    //     color: "#B0BAC9",
-    //     marginVertical: 15,
-    // },
-    // priceDiscount: {
-    //     fontWeight: "700",
-    //     fontSize: 20,
-    // },
-    // price: {
-    //     color:"#B0BAC9",
-    //     textDecorationLine:"line-through"
-    // },
-    // discountPercentage: {
-    //     backgroundColor:"#FFE8D9",
-    //     color: "#FF9526",
-    //     borderRadius: 7,
-    //     padding: 2,
-    // },
 });
