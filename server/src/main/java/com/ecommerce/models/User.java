@@ -1,6 +1,7 @@
 package com.ecommerce.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
@@ -23,6 +24,7 @@ public class User {
     private String lastName;
 
     @NotBlank(message = "name is mandatory")
+    @Email(message = "invalid email")
     @Column(name = "email")
     private String email;
 

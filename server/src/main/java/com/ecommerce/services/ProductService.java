@@ -1,6 +1,8 @@
 package com.ecommerce.services;
 
 import com.ecommerce.controllers.AuthController;
+import com.ecommerce.exceptions.ResourceNotFoundException;
+import com.ecommerce.exceptions.UnauthorizedException;
 import com.ecommerce.models.Product;
 import com.ecommerce.repositories.ProductRepository;
 import com.ecommerce.utils.JWTUtil;
@@ -21,10 +23,31 @@ public class ProductService {
         this.authService = authService;
     }
 
+    public Product addProduct(Product product) {
+        return productRepository.save(product);
+    }
+
     public List<Product> getAllProducts(String token) {
         if(authService.validationToken(token)) {
             return productRepository.findAll();
         }
-        return null;
+        throw new UnauthorizedException("Unauthorized: invalid token");
+    }
+
+    public Product getProduct(Long id, String token) {
+        if(authService.validationToken(token)) {
+            return productRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("The product with this id: " + id + "is not found"));
+        }
+        throw new UnauthorizedException("Unauthorized: invalid token");
+    }
+
+    public Product updateStockProduct(Long id, Integer quantityPurchased, String token) {
+        if(authService.validationToken(token)) {
+            Product product = productRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("The product with this id: " + id + "is not found"));
+            product.setStock(product.getStock()-quantityPurchased);
+
+            return productRepository.save(product);
+        }
+        throw new UnauthorizedException("Unauthorized: invalid token");
     }
 }

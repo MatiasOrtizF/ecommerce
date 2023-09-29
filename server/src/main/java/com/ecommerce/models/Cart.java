@@ -20,4 +20,5 @@ public class Cart {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_product")
     private Product product;
+
 }
