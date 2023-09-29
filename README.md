@@ -1,7 +1,7 @@
-# [_**Todo**_](https://github.com/MatiasOrtizF/ecommerce "Live app")
+# [_**Ecommerce**_](https://github.com/MatiasOrtizF/ecommerce "Live app")
 
 ## Ecommerce
-Un ecommerce te ayudará a explorar, comprar y gestionar tus productos y compras en línea de manera más conveniente y eficiente. <br>
+Un ecommerce te ayudará a explorar y gestionar tus productos y compras en línea de manera más conveniente y eficiente. <br>
 Hecha con React Native y Spring Boot.
 
 
