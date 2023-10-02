@@ -5,7 +5,7 @@ import CartService from '../service/CartService';
 export const CartContext = createContext();
 
 export function CartProvider({children}) {
-    const [token, setToken] = useState("eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyIiwiaWF0IjoxNjk2MjAwNDk2LCJzdWIiOiJjYXJsb3MubWFydGluZXpAZW1haWwuY29tIiwiaXNzIjoiTWFpbiIsImV4cCI6MTY5NjgwNTI5Nn0.VWj9B9PaXAF_naJB3jftIv7Ki47SnUtFurh21H6-GqE");
+    const [token, setToken] = useState("eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyIiwiaWF0IjoxNjk2Mjg1NzE4LCJzdWIiOiJjYXJsb3MubWFydGluZXpAZW1haWwuY29tIiwiaXNzIjoiTWFpbiIsImV4cCI6MTY5Njg5MDUxOH0.Ni12tYb2et0gjznvZRgAtIygVV9jHd4NLhiF2IlzLYU");
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
 
@@ -26,10 +26,19 @@ export function CartProvider({children}) {
     }
 
     const minus = product => {
-        const productInCartIndex = cart.findIndex(item=>item.id==product.id);
+        const productInCartIndex = cart.findIndex(item=> item.id==product.id);
         if(cart[productInCartIndex].quantity  > 1) {
             const newCart = [...cart]
             newCart[productInCartIndex].quantity -= 1
+            return setCart(newCart)
+        }
+    }
+
+    const plus = product => {
+        const productInCartIndex = cart.findIndex(item=> item.cartId==product.cartId);
+        if(cart[productInCartIndex].quantity  < 15) {
+            const newCart = [...cart]
+            newCart[productInCartIndex].quantity += 1
             return setCart(newCart)
         }
     }
@@ -42,6 +51,7 @@ export function CartProvider({children}) {
         CartService.getCart(token).then(response=> {
             const productData = response.data.map(item=> ({
                 cartId: item.id,
+                quantity: item.quantity,
                 ...item.product,
             }));
             setCart(productData);
@@ -64,6 +74,7 @@ export function CartProvider({children}) {
             addToCart,
             clearCart,
             minus,
+            plus,
             removeFromCart,
             cartList,
             listProducts,

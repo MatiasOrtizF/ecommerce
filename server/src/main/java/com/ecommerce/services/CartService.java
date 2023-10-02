@@ -51,6 +51,7 @@ public class CartService {
 
             if(existingCart==null) {
                 Cart cart = new Cart();
+                cart.setQuantity(1);
                 cart.setUser(user);
                 cart.setProduct(product);
                 return cartRepository.save(cart);

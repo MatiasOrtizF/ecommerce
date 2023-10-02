@@ -21,4 +21,6 @@ public class Cart {
     @JoinColumn(name = "id_product")
     private Product product;
 
+    @Column(name = "quantity")
+    private Integer quantity;
 }
