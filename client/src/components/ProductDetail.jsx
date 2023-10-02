@@ -1,13 +1,9 @@
-import { StyleSheet, Text , FlatList, SafeAreaView , View , Image, Button, TouchableOpacity, Touchable, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import products from '../data/Products.json';
 import Constants from 'expo-constants';
-import { useState } from 'react';
 import { SvgXml } from 'react-native-svg';
 import iconPlus from '../images/icon-plus';
 import iconMinus from '../images/icon-minus';
-import iconCart from '../images/icon-cart';
-import iconDelete from '../images/icon-delete';
-import RNPickerSelect from 'react-native-picker-select';
 
 
 export default function ProductList() {

@@ -1,9 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import {Image} from 'react-native';
-import ProductList from './src/components/ProductList.jsx';
-import Cart from './src/components/Cart.jsx';
-import { CartProvider } from './src/components/CartC.jsx';
+import Home from './src/screens/Home.jsx'
+import Cart from './src/screens/Cart.jsx';
+import { CartProvider } from './src/context/useCart.jsx';
 
 export default function App() {
 
@@ -15,7 +15,7 @@ export default function App() {
                 <Tab.Navigator screenOptions={{headerShown: false}}>
                     <Tab.Screen 
                         name="Home" 
-                        component={ProductList} 
+                        component={Home} 
                         options={{
                             tabBarIcon: ({focused}) => (
                             <Image 
