@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     description: {
         color:"#7f8794d8",
         fontSize: 13,
-        marginVertical: "2%"
+        marginVertical: "2%",
+        textAlign: "left"
     },
     buttonMinusPlus: {
         alignItems:"center",

@@ -1,5 +1,4 @@
-import { Text, FlatList, View, ImageBackground, TouchableOpacity, SafeAreaView } from 'react-native';
-import Constants from 'expo-constants';
+import { Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 import {useEffect} from 'react';
 import { SvgXml } from 'react-native-svg';
 import iconPlus from '../images/icon-plus';
@@ -26,13 +25,13 @@ export default function CartList({product}) {
             </View>     
             <View style={{flex:0.60, marginLeft: 15, marginRight: 5}}>
                 <View>
-                    <View style={{flexDirection:"row" , justifyContent:"space-between" , alignItems:"center"}}>
-                        <Text style={styles.title}> {product.title} </Text>
+                    <View style={{flexDirection:"row"}}>
+                        <Text style={styles.title} numberOfLines={1} ellipsizeMode='tail'> {product.title} </Text>
                     </View>
                     <Text style={styles.description} numberOfLines={2} ellipsizeMode='tail'> {product.description} </Text>
                 </View>
                 <View style={{flexDirection:"row" , alignItems:"center" , justifyContent:"space-between"}}>
-                    <Text style={styles.title}> ${(product.price*product.discountPercentage/100).toFixed(2)} </Text>
+                    <Text style={styles.title}> ${product.price-(product.price*product.discountPercentage/100).toFixed(2)} </Text>
                     <View style={{flexDirection:"row" , alignItems:"center"}}>
                         <TouchableOpacity style={styles.buttonMinusPlus} onPress={()=> minus(product)} >
                             <SvgXml xml={iconMinus}></SvgXml>
