@@ -8,8 +8,8 @@ Hecha con React Native y Spring Boot.
 ## Tecnologias Utilizadas
 ### _Lenguajes_
 <p align='center'>
-    <img height="60"src="https://cdn2.iconfinder.com/data/icons/designer-skills/128/code-programming-javascript-software-develop-command-language-512.png">
-    <img height="60"src="https://cdn2.iconfinder.com/data/icons/designer-skills/128/code-programming-java-software-develop-command-language-512.png">
+    <img height="80"src="https://cdn2.iconfinder.com/data/icons/designer-skills/128/code-programming-javascript-software-develop-command-language-512.png">
+    <img height="80"src="https://cdn2.iconfinder.com/data/icons/designer-skills/128/code-programming-java-software-develop-command-language-512.png">
 </p>
 
 
