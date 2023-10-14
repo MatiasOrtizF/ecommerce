@@ -11,6 +11,8 @@ Hecha con React Native y Spring Boot.
     <img height="30"src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E">
 </p>
 
+![Markdown Logo](https://commonmark.org/help/images/favicon.png)
+
 
 ## Instalación
 1. Clonar el repositorio:
