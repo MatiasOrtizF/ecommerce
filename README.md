@@ -11,7 +11,7 @@ Hecha con React Native y Spring Boot.
     <img height="30"src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E">
 </p>
 
-![Markdown Logo](https://commonmark.org/help/images/favicon.png)
+![Markdown Logo](https://cdn2.iconfinder.com/data/icons/designer-skills/128/code-programming-javascript-software-develop-command-language-512.png)
 
 
 ## Instalación
